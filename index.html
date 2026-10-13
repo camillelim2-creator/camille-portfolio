@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Camille | Video Editor for Reels & Short-Form Content</title>
+<meta name="description" content="Short-form video editor creating scroll-stopping reels, TikToks and shorts. View her work and get in touch.">
+<meta property="og:title" content="Camille | Video Editor">
+<meta property="og:description" content="Trendy, on-brand short-form edits for creators and small businesses.">
+<meta property="og:image" content="images/preview.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbf6f1; --ink:#2a2023; --muted:#6f6266; --accent:#e8553d; --accent-2:#f6c9b8;
+    --card:#ffffff; --line:#eadfd7; --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+  section{padding:72px 0}
+  h1,h2,h3{font-family:'Fraunces',serif;line-height:1.1}
+  h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:12px}
+  .eyebrow{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px}
+  .lead{color:var(--muted);max-width:56ch}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:rgba(251,246,241,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+  .logo{font-family:'Fraunces',serif;font-weight:800;font-size:1.15rem;text-decoration:none}
+  nav ul{display:flex;gap:22px;list-style:none;font-size:.95rem}
+  nav a{text-decoration:none;color:var(--muted)}
+  nav a:hover{color:var(--ink)}
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:13px 24px;border-radius:999px;text-decoration:none;font-weight:700;transition:transform .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+
+  /* hero */
+  .hero{padding:64px 0 40px}
+  .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(2.4rem,6vw,4rem);margin-bottom:18px}
+  .hero h1 em{color:var(--accent);font-style:normal}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .photo{aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;background:linear-gradient(160deg,var(--accent-2),#fff1e8);border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);font-size:.9rem;text-align:center;padding:16px}
+  .photo img{width:100%;height:100%;object-fit:cover}
+  .stats{display:flex;gap:32px;margin-top:36px;flex-wrap:wrap}
+  .stats b{font-family:'Fraunces',serif;font-size:1.8rem;display:block}
+  .stats span{font-size:.85rem;color:var(--muted)}
+
+  /* reels */
+  .reels{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px;margin-top:32px}
+  .reel{position:relative;aspect-ratio:9/16;border-radius:var(--radius);overflow:hidden;background:linear-gradient(160deg,#2a2023,#5a3a40);display:block;text-decoration:none;color:#fff}
+  .reel img,.reel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .reel .meta{position:absolute;inset:auto 0 0 0;padding:44px 14px 14px;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .reel .meta b{display:block;font-size:.95rem}
+  .reel .meta span{font-size:.78rem;opacity:.85}
+  .reel .play{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.9);color:var(--ink);display:grid;place-items:center;font-size:.8rem}
+  .reel:hover img,.reel:hover video{transform:scale(1.04)}
+  .reel img,.reel video{transition:transform .4s}
+  .note{margin-top:16px;font-size:.85rem;color:var(--muted)}
+
+  /* services */
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:32px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .card h3{font-size:1.25rem;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.95rem}
+  .card .ic{font-size:1.6rem;margin-bottom:10px}
+
+  /* about */
+  .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:center}
+  .about p+p{margin-top:14px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .tags span{background:var(--accent-2);color:#7a2a1a;padding:6px 14px;border-radius:999px;font-size:.85rem;font-weight:500}
+
+  /* process */
+  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:32px}
+  .step{counter-increment:s;border-top:2px solid var(--ink);padding-top:14px}
+  .step::before{content:"0" counter(s);font-family:'Fraunces',serif;color:var(--accent);font-weight:800}
+  .step h3{font-size:1.1rem;margin:6px 0}
+  .step p{color:var(--muted);font-size:.92rem}
+
+  /* contact */
+  .contact{background:var(--ink);color:#fff;border-radius:28px;padding:56px 32px;text-align:center}
+  .contact .lead{color:#d9ccc8;margin:12px auto 28px}
+  .contact .btn{margin:4px}
+  .contact .btn.ghost{color:#fff;border-color:#fff}
+  footer{padding:32px 0;text-align:center;color:var(--muted);font-size:.85rem}
+
+  @media (max-width:760px){
+    nav ul{display:none}
+    .hero .wrap,.about{grid-template-columns:1fr}
+    .photo{max-width:320px}
+    section{padding:52px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Camille Vianese Lumor</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn" href="#contact" style="padding:9px 18px;font-size:.9rem">Let's talk</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Video Editor · Short-Form Content</p>
+      <h1>Reels that get <em>watched</em>, not scrolled past.</h1>
+      <p class="lead">I edit trendy, on-brand short-form videos for creators and small businesses, with clean cuts, captions that pop, and fast turnaround.</p>
+      <div class="cta">
+        <a class="btn" href="#work">See my work</a>
+        <a class="btn ghost" href="resume/Camille_Lumor_SMM_Resume.pdf">Download resume</a>
+      </div>
+      <div class="stats">
+        <div><b>3+</b><span>Happy clients</span></div>
+        <div><b>50+</b><span>Videos edited</span></div>   <!-- TODO: update with real numbers -->
+        <div><b>48h</b><span>Typical turnaround</span></div>
+      </div>
+    </div>
+    <div class="photo"><img src="images/Camille Portrait.jpg" alt="Portrait of Camille" onerror="this.remove();this.parentNode.append('Add your photo: images/Camille Portrait.jpg')"></div>
+  </div>
+</header>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <p class="eyebrow">Selected Work</p>
+    <h2>Recent reels & edits</h2>
+    <p class="lead">A few favorites. Tap any card to watch.</p>
+
+    <div class="reels">
+      <!--
+        For each reel: set href to the video link (Instagram, TikTok, YouTube Shorts, Google Drive, or a local .mp4),
+        and put a thumbnail in images/. Duplicate or delete cards as needed.
+      -->
+      <a class="reel" href="https://www.tiktok.com/@camillelimz/video/7297577676297014533" target="_blank" rel="noopener">
+        <img src="images/pound.png" alt="Thumbnail for Reel 1" onerror="this.remove()">
+        <!--<span class="play">▶</span>-->
+        <div class="meta"><b>Food Review reel</b><span>Personal · Fast-cut</span></div>
+      </a>
+      <a class="reel" href="https://www.tiktok.com/@camillelimz/video/7269777799555091718" target="_blank" rel="noopener">
+        <img src="images/chickings.png" alt="Thumbnail for Reel 2" onerror="this.remove()">
+        <!--<span class="play">▶</span>-->
+        <div class="meta"><b>Food Review reel</b><span>Personal · Trend transitions</span></div>
+      </a>
+      <a class="reel" href="https://www.tiktok.com/@camillelimz/video/7693652601912511796" target="_blank" rel="noopener">
+        <img src="images/trend.png" alt="Thumbnail for Reel 3" onerror="this.remove()">
+        <!--<span class="play">▶</span>-->
+        <div class="meta"><b>Vibe</b><span>Personal · Subtitles + B-roll</span></div>
+      </a>
+      <a class="reel" href="https://www.tiktok.com/@camillelimz/video/7688692860505361684" target="_blank" rel="noopener">
+        <img src="images/cute.png" alt="Thumbnail for Reel 4" onerror="this.remove()">
+        <!--<span class="play">▶</span>-->
+        <div class="meta"><b>Trend</b><span>Personal · Music sync</span></div>
+      </a>
+    </div>
+    <p class="note">Tip: pick 4-8 of her strongest edits. Lead with the one she's proudest of.</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <p class="eyebrow">What I Do</p>
+    <h2>Editing that fits your content</h2>
+    <div class="grid3">
+      <div class="card"><div class="ic">🎬</div><h3>Reels, TikToks & Shorts</h3><p>Hook-first edits with trending audio, transitions and pacing built for retention.</p></div>
+      <div class="card"><div class="ic">💬</div><h3>Captions & Text Overlays</h3><p>Clear, on-brand subtitles and animated text so your message lands even on mute.</p></div>
+      <div class="card"><div class="ic">🎨</div><h3>Color & Polish</h3><p>Clean color, audio balance and cuts that make everyday footage look professional.</p></div>
+      <div class="card"><div class="ic">📆</div><h3>Content Batches</h3><p>Weekly or monthly packages so your feed stays consistent without the stress.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about">
+    <div class="photo"><img src="images/Camille About.jpg" alt="Camille editing" onerror="this.remove();this.parentNode.append('Optional: images/Camille About.jpg')"></div>
+    <div>
+      <p class="eyebrow">About</p>
+      <h2>Creator's eye, client-first mindset</h2>
+      <p>I started as an aspiring content creator, which is how I learned what makes a reel stop the scroll: the hook, the rhythm, the little details that feel current.</p>
+      <p>Before editing, I worked in customer service and as an intake specialist. That taught me to listen carefully, communicate clearly, keep to deadlines and make sure people feel looked after. You'll always know where your project stands.</p>
+      <div class="tags">
+        <span>CapCut</span><span>DaVinci Resolve</span><span>Canva</span>
+        <!-- TODO: keep only the tools she actually uses -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <p class="eyebrow">How It Works</p>
+    <h2>Simple, smooth, no surprises</h2>
+    <div class="steps">
+      <div class="step"><h3>Brief</h3><p>Share your footage, references and goals.</p></div>
+      <div class="step"><h3>First cut</h3><p>I send a draft, usually within 48 hours.</p></div>
+      <div class="step"><h3>Revisions</h3><p>We tweak until it feels exactly right.</p></div>
+      <div class="step"><h3>Delivery</h3><p>Final files in the formats you need, ready to post.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Let's make something worth watching</h2>
+      <p class="lead">Open to freelance projects and full-time or part-time video editing roles.</p>
+      <a class="btn" href="mailto:camillelim2@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/camille-lumor/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://www.instagram.com/camzlim/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="y"></span> Camille. All rights reserved.</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
